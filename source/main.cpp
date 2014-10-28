@@ -32,9 +32,13 @@ public:
 
 	float x = 300;
 	float y = 300;
-	
+	float Width = 64;
+	float Height = 98;
 	float ShipSpeedX = 0;
 	float ShipSpeedY = 0;
+
+	float r = 6;
+
 
 	float bottomofship;
 	float topofship;
@@ -53,7 +57,15 @@ public:
 		MoveSprite(SpriteID, x, y);
 	}
 
+	void Destroy(float deltatime)
+	{
+		ClearScreen();
 
+		leftofship = x - 64;
+		rightofship = x;
+		topofship = y;
+		bottomofship = y - 98;
+	}
 };
 
 struct bullets
@@ -86,6 +98,12 @@ struct alienShips
 	float enemyspeedy = 0;
 	float fEnemyX = 1040 * 0.2f;
 	float fEnemyY = 820 * 0.7f;
+	//collsion for the alien
+	float bottomofalien;
+	float topofalien;
+	float leftofalien;
+	float rightofalien;
+
 	
 
 	void Draw()
@@ -136,7 +154,7 @@ int main(int argc, char* argv[])
 {
 	bool IsGameRunning = true;
 	Initialise(iScreenWidth, iScreenHeight, false, "I FEEL ASLEEP");
-	
+	alienShips alien;
 	
 	ship player1;
 	player1.x = iScreenHeight * .5;
@@ -147,6 +165,9 @@ int main(int argc, char* argv[])
 	float fEnemyX = iScreenWidth * 0.2f;
 	float fEnemyY = iScreenHeight * 0.7f;
 	
+
+
+
 	creditscreen credits;
 	
 	
@@ -203,7 +224,9 @@ int main(int argc, char* argv[])
 													fEnemyY -= 0.08 * 820;
 											}
 					
-										}
+									}
+									
+									
 
 					//exit
 					if (IsKeyDown(GLFW_KEY_ESCAPE))
@@ -289,11 +312,33 @@ int main(int argc, char* argv[])
 					}
 					
 				}
+				
+
+				if (alien.bottomofalien < player1.topofship)
+				{
+					if (alien.topofalien < player1.bottomofship)
+					{
+
+						if (alien.rightofalien < player1.leftofship) //player1 left
+						{
+							if (alien.leftofalien > player1.rightofship) //player1 right
+							{
+								
+								CreateSprite("./images/dead.png", 64, 98, false);
+								ClearScreen();
+								
+							}
+						}
+					}
+				}
 				break;
+
+				//credits screen
 				case eCREDITS:
 					ClearScreen();
 				
-				credits.Draw();
+				
+					credits.Draw();
 				
 				if (IsKeyDown(GLFW_KEY_BACKSPACE))
 				{

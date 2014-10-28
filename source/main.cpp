@@ -15,8 +15,8 @@ struct creditscreen
 {
 	unsigned int SpriteID = CreateSprite("./images/credits.png", 1040, 820, true);
 
-	float x = 2080;
-	float y = 1640;
+	float x = 520;
+	float y = 410;
 
 	void Draw()
 	{
@@ -35,6 +35,11 @@ public:
 	
 	float ShipSpeedX = 0;
 	float ShipSpeedY = 0;
+
+	float bottomofship;
+	float topofship;
+	float leftofship;
+	float rightofship;
 
 	void Draw()
 	{
@@ -73,7 +78,7 @@ struct bullets
 
 struct alienShips
 {
-	unsigned int SpriteID = CreateSprite("./images/invaders_1_00.png", 134, 115, true);
+	unsigned int SpriteID = CreateSprite("./images/enemy.png", 134, 115, true);
 	unsigned int enemyShips;
 	float x = 900;
 	float y = 410;
@@ -113,8 +118,7 @@ void UpdateCredits()
 	MoveSprite(credits, 520, 410);
 	DrawSprite(credits);
 
-	float x = 520;
-	float y = 410;
+	
 }
 
 
@@ -183,13 +187,13 @@ int main(int argc, char* argv[])
 					
 
 								case eGAMEPLAY:
-									CreateSprite("./images/sea.png", 1040, 820, true);
+									
 									ClearScreen();
 									player1.Draw();
 									player1.Move(deltatime);
 									for (int i = 0; i < 5; ++i)
 										{
-											alienShips[1] = CreateSprite("./images/invaders/invaders_1_00.png", 64, 98, true);
+											alienShips[1] = CreateSprite("./images/enemy.png", 64, 98, false);
 											MoveSprite(alienShips[1], fEnemyX, fEnemyY);
 											DrawSprite(alienShips[1]);
 											fEnemyX += 0.00012 * 1040, 820;
@@ -290,8 +294,7 @@ int main(int argc, char* argv[])
 					ClearScreen();
 				
 				credits.Draw();
-				credits.x = 840;
-				credits.y = 820;
+				
 				if (IsKeyDown(GLFW_KEY_BACKSPACE))
 				{
 					eCurrentState = eGAMEPLAY;

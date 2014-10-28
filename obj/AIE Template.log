@@ -1,15 +1,15 @@
-﻿Build started 10/28/2014 9:46:24 AM.
+﻿Build started 10/28/2014 11:16:22 AM.
      1>Project "C:\Users\landon.haggerty\Desktop\AIE Year1 Framework VS2013\SHMUP\AIE Template.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I./ /I./include/ /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"obj\\" /Fd"obj\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt source\main.cpp
          main.cpp
-     1>c:\users\landon.haggerty\desktop\aie year1 framework vs2013\shmup\source\main.cpp(179): warning C4060: switch statement contains no 'case' or 'default' labels
-     1>c:\users\landon.haggerty\desktop\aie year1 framework vs2013\shmup\source\main.cpp(195): warning C4305: '+=' : truncation from 'double' to 'float'
-     1>c:\users\landon.haggerty\desktop\aie year1 framework vs2013\shmup\source\main.cpp(199): warning C4305: '-=' : truncation from 'double' to 'float'
-     1>c:\users\landon.haggerty\desktop\aie year1 framework vs2013\shmup\source\main.cpp(220): warning C4552: '>' : operator has no effect; expected operator with side-effect
-     1>c:\users\landon.haggerty\desktop\aie year1 framework vs2013\shmup\source\main.cpp(231): warning C4552: '<' : operator has no effect; expected operator with side-effect
-     1>c:\users\landon.haggerty\desktop\aie year1 framework vs2013\shmup\source\main.cpp(243): warning C4552: '<' : operator has no effect; expected operator with side-effect
-     1>c:\users\landon.haggerty\desktop\aie year1 framework vs2013\shmup\source\main.cpp(255): warning C4552: '<' : operator has no effect; expected operator with side-effect
+     1>c:\users\landon.haggerty\desktop\aie year1 framework vs2013\shmup\source\main.cpp(183): warning C4060: switch statement contains no 'case' or 'default' labels
+     1>c:\users\landon.haggerty\desktop\aie year1 framework vs2013\shmup\source\main.cpp(199): warning C4305: '+=' : truncation from 'double' to 'float'
+     1>c:\users\landon.haggerty\desktop\aie year1 framework vs2013\shmup\source\main.cpp(203): warning C4305: '-=' : truncation from 'double' to 'float'
+     1>c:\users\landon.haggerty\desktop\aie year1 framework vs2013\shmup\source\main.cpp(224): warning C4552: '>' : operator has no effect; expected operator with side-effect
+     1>c:\users\landon.haggerty\desktop\aie year1 framework vs2013\shmup\source\main.cpp(235): warning C4552: '<' : operator has no effect; expected operator with side-effect
+     1>c:\users\landon.haggerty\desktop\aie year1 framework vs2013\shmup\source\main.cpp(247): warning C4552: '<' : operator has no effect; expected operator with side-effect
+     1>c:\users\landon.haggerty\desktop\aie year1 framework vs2013\shmup\source\main.cpp(259): warning C4552: '<' : operator has no effect; expected operator with side-effect
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"bin\AIE Template_d.exe" /INCREMENTAL /NOLOGO /LIBPATH:./libs AIE_1st_Year_Framework_d.lib kernel32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"bin\AIE Template_d.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"bin\AIE Template_d.lib" /MACHINE:X86 obj\enemy.obj
          obj\player.obj
@@ -25,6 +25,8 @@
      1>AIE_1st_Year_Framework_d.lib(stb_image_aug.obj) : warning LNK4099: PDB 'vc110.pdb' was not found with 'AIE_1st_Year_Framework_d.lib(stb_image_aug.obj)' or at 'C:\Users\landon.haggerty\Desktop\AIE Year1 Framework VS2013\SHMUP\bin\vc110.pdb'; linking object as if no debug info
      1>AIE_1st_Year_Framework_d.lib(image_helper.obj) : warning LNK4099: PDB 'vc110.pdb' was not found with 'AIE_1st_Year_Framework_d.lib(image_helper.obj)' or at 'C:\Users\landon.haggerty\Desktop\AIE Year1 Framework VS2013\SHMUP\bin\vc110.pdb'; linking object as if no debug info
      1>AIE_1st_Year_Framework_d.lib(image_DXT.obj) : warning LNK4099: PDB 'vc110.pdb' was not found with 'AIE_1st_Year_Framework_d.lib(image_DXT.obj)' or at 'C:\Users\landon.haggerty\Desktop\AIE Year1 Framework VS2013\SHMUP\bin\vc110.pdb'; linking object as if no debug info
+     1>player.obj : warning LNK4099: PDB 'vc120.pdb' was not found with 'player.obj' or at 'C:\Users\landon.haggerty\Desktop\AIE Year1 Framework VS2013\SHMUP\bin\vc120.pdb'; linking object as if no debug info
+     1>enemy.obj : warning LNK4099: PDB 'vc120.pdb' was not found with 'enemy.obj' or at 'C:\Users\landon.haggerty\Desktop\AIE Year1 Framework VS2013\SHMUP\bin\vc120.pdb'; linking object as if no debug info
      1>AIE_1st_Year_Framework_d.lib(tinystr.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'AIE_1st_Year_Framework_d.lib(tinystr.obj)' or at 'C:\Users\landon.haggerty\Desktop\AIE Year1 Framework VS2013\SHMUP\bin\vc120.pdb'; linking object as if no debug info
      1>AIE_1st_Year_Framework_d.lib(tinyxml.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'AIE_1st_Year_Framework_d.lib(tinyxml.obj)' or at 'C:\Users\landon.haggerty\Desktop\AIE Year1 Framework VS2013\SHMUP\bin\vc120.pdb'; linking object as if no debug info
      1>AIE_1st_Year_Framework_d.lib(tinyxmlerror.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'AIE_1st_Year_Framework_d.lib(tinyxmlerror.obj)' or at 'C:\Users\landon.haggerty\Desktop\AIE Year1 Framework VS2013\SHMUP\bin\vc120.pdb'; linking object as if no debug info
@@ -47,4 +49,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:01.47
+Time Elapsed 00:00:01.46

@@ -57,15 +57,7 @@ public:
 		MoveSprite(SpriteID, x, y);
 	}
 
-	void Destroy(float deltatime)
-	{
-		ClearScreen();
-
-		leftofship = x - 64;
-		rightofship = x;
-		topofship = y;
-		bottomofship = y - 98;
-	}
+	
 };
 
 struct bullets
@@ -224,8 +216,8 @@ int main(int argc, char* argv[])
 													fEnemyY -= 0.08 * 820;
 											}
 					
-									}
-									
+										}
+										
 									
 
 					//exit
@@ -239,7 +231,7 @@ int main(int argc, char* argv[])
 
 
 					//controls
-					if (IsKeyDown(GLFW_KEY_UP))
+					if (IsKeyDown(GLFW_KEY_W))
 					{
 						player1.y += deltatime * 35.F;
 						if (player1.y > -128.f)
@@ -250,7 +242,7 @@ int main(int argc, char* argv[])
 					}
 
 					//going down
-					if (IsKeyDown(GLFW_KEY_DOWN))
+					if (IsKeyDown(GLFW_KEY_S))
 					{
 						player1.y -= deltatime * 35.f;
 						if (player1.y < -128.f)
@@ -262,7 +254,7 @@ int main(int argc, char* argv[])
 
 
 					//going left
-					if (IsKeyDown(GLFW_KEY_LEFT))
+					if (IsKeyDown(GLFW_KEY_A))
 					{
 						player1.x -= deltatime * 35.f;
 						if (player1.x < 128.f)
@@ -274,7 +266,7 @@ int main(int argc, char* argv[])
 
 
 					//going right
-					if (IsKeyDown(GLFW_KEY_RIGHT))
+					if (IsKeyDown(GLFW_KEY_D))
 					{
 						player1.x += deltatime * 35.f;
 						if (player1.x < 128.f)

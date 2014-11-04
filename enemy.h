@@ -1,20 +1,20 @@
 #pragma once
-class Enemy
+#include "AIE.h"
+#include "player.h"
+
+class enemy
 {
 public:
-	int enemy();
-
-	unsigned int iSpriteID;
-
-	void Move();
-	void Draw();
-	
-
-	~Enemy();
+	enemy();
+		unsigned int iSpriteID;
+		void Move();
+		void Draw();
+	~enemy();
 
 private:
 
 	float x;
+
 	float y;
 
 	float fWidth;

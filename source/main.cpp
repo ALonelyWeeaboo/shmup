@@ -2,6 +2,7 @@
 #include <string>
 #include <aie.h>
 
+#include "player.h"
 //screen resolution
 const int iScreenWidth = 1040;
 const int iScreenHeight = 820;
@@ -25,6 +26,24 @@ struct creditscreen
 	}
 };
 
+
+class alienShips
+{
+public:
+	float x, y;
+
+	int SpriteID;
+
+	int GetSpriteID()
+	{
+		return SpriteID;
+	}
+	void SetSpriteID()
+	{
+		SpriteID = ("./images/enemy.png", 134, 195, true);
+	}
+};
+
 struct ship
 {
 	unsigned int SpriteID = CreateSprite("./images/ship player.png", 64, 98, true);
@@ -36,9 +55,10 @@ public:
 	float Height = 98;
 	float ShipSpeedX = 0;
 	float ShipSpeedY = 0;
-
+	float fPlayerX = 0;
 	float r = 6;
-
+	float fHeight;
+	float fWidth;
 
 	float bottomofship;
 	float topofship;
@@ -80,6 +100,9 @@ struct bullets
 };
 
 
+
+
+
 struct alienShips
 {
 	unsigned int SpriteID = CreateSprite("./images/enemy.png", 134, 115, true);
@@ -103,12 +126,7 @@ struct alienShips
 		DrawSprite(SpriteID);
 	}
 
-	void Move(float deltatime)
-	{
-		x -= enemyspeedx *deltatime / 600;
-		y += enemyspeedy *deltatime / 600;
-		MoveSprite(SpriteID, x, y);
-	}
+	
 };
 
 
@@ -130,6 +148,7 @@ void UpdateCredits()
 
 	
 }
+
 
 
 enum GAMESTATES
@@ -200,12 +219,18 @@ int main(int argc, char* argv[])
 					
 
 								case eGAMEPLAY:
-									
+									player1.fHeight = 32.f;
+									player1.fWidth = 64.f;
+									player1.SpriteID = CreateSprite("./images/cannon.png", player1.fWidth, player1.fHeight, true);
+									player1.x = iScreenWidth * 0.5f;
+									player1.y = 80.f;
 									ClearScreen();
 									player1.Draw();
 									player1.Move(deltatime);
+									bool lowerAliens = false;
+									//first for loop
 									for (int i = 0; i < 5; ++i)
-										{
+								{
 											alienShips[1] = CreateSprite("./images/enemy.png", 64, 98, false);
 											MoveSprite(alienShips[1], fEnemyX, fEnemyY);
 											DrawSprite(alienShips[1]);
@@ -214,9 +239,18 @@ int main(int argc, char* argv[])
 											{
 													fEnemyX = 1040 * .2f;
 													fEnemyY -= 0.08 * 820;
+													break;
 											}
-					
+											else if (alienShips[1] < 1040 * .1)
+										{
+												fEnemyX = 1040 * .2f;
+												fEnemyY += 0.08 * 820;
 										}
+
+											
+										
+											
+								}
 										
 									
 
@@ -230,52 +264,7 @@ int main(int argc, char* argv[])
 					}
 
 
-					//controls
-					if (IsKeyDown(GLFW_KEY_W))
-					{
-						player1.y += deltatime * 35.F;
-						if (player1.y > -128.f)
-						{
-							player1.y > -128.0f;
-							player1.Move(player1.y);
-						}
-					}
-
-					//going down
-					if (IsKeyDown(GLFW_KEY_S))
-					{
-						player1.y -= deltatime * 35.f;
-						if (player1.y < -128.f)
-						{
-							player1.y < -128.0f;
-							player1.Move(player1.y);
-						}
-					}
-
-
-					//going left
-					if (IsKeyDown(GLFW_KEY_A))
-					{
-						player1.x -= deltatime * 35.f;
-						if (player1.x < 128.f)
-						{
-							player1.x < 128.f;
-							player1.Move(player1.x);
-						}
-					}
-
-
-					//going right
-					if (IsKeyDown(GLFW_KEY_D))
-					{
-						player1.x += deltatime * 35.f;
-						if (player1.x < 128.f)
-						{
-							player1.x < 128.f;
-							player1.Move(player1.x);
-						}
-						
-					}
+					
 					//Displays credits
 					if (IsKeyDown(GLFW_KEY_F1))
 					{
@@ -316,7 +305,7 @@ int main(int argc, char* argv[])
 							if (alien.leftofalien > player1.rightofship) //player1 right
 							{
 								
-								CreateSprite("./images/dead.png", 64, 98, false);
+								CreateSprite("./images/dead.png", 64, 98, true);
 								ClearScreen();
 								
 							}
@@ -348,7 +337,6 @@ int main(int argc, char* argv[])
 		//Ends game,
 
 		while (FrameworkUpdate() == false && IsGameRunning);
-
 		Shutdown();
 		return 0;
 

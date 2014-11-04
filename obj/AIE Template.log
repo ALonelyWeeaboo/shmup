@@ -1,5 +1,10 @@
-﻿Build started 10/29/2014 9:01:37 AM.
+﻿Build started 11/3/2014 4:27:18 PM.
+     1>Project "C:\Users\landon.haggerty\Desktop\AIE Year1 Framework VS2013\SHMUP\AIE Template.vcxproj" on node 2 (Build target(s)).
+     1>Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"bin\AIE Template_d.exe" /INCREMENTAL /NOLOGO /LIBPATH:./libs AIE_1st_Year_Framework_d.lib kernel32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"bin\AIE Template_d.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"bin\AIE Template_d.lib" /MACHINE:X86 obj\bullet.obj
+     1>LINK : fatal error LNK1561: entry point must be defined
+     1>Done Building Project "C:\Users\landon.haggerty\Desktop\AIE Year1 Framework VS2013\SHMUP\AIE Template.vcxproj" (Build target(s)) -- FAILED.
 
-Build succeeded.
+Build FAILED.
 
-Time Elapsed 00:00:00.43
+Time Elapsed 00:00:00.09
